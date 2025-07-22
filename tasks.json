@@ -1,14 +1,8 @@
 [
   {
-    "title": " study",
-    "description": "stydy examp",
-    "priority": 3,
+    "title": " make cupe tea",
+    "description": " breacking",
+    "priority": 0,
     "done": true
-  },
-  {
-    "title": " problem solving",
-    "description": "solve qustion 3 PM ",
-    "priority": 1,
-    "done": false
   }
 ]

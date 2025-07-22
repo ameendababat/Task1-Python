@@ -14,7 +14,7 @@ def load_tasks():
             return tasks
 
 def add_task():
-    """ add new task to   TO DO list """
+    """ add new task to  TO DO list """
     global tasks
     # task = input("Enter your task:")
     # tasks.append(task)
@@ -30,7 +30,7 @@ def add_task():
             if 0 <= priority <= 5:
                 break
             else:
-                print("priority must be between 1 and 5")
+                print("priority must be between 0 and 5")
         except ValueError:
             print("invalid number! Try again")
             
@@ -58,7 +58,7 @@ def view_tasks(tasks):
         if task["done"]:
             status = "Done"
         else:
-            status = "Not Done" 
+            status = "NotDone" 
         print(f"{i+1}. [{status}] {task["title"]} (priority: {task["priority"]}) \n {task["description"]}") 
         i+=1
 
@@ -70,12 +70,12 @@ def sort_tasks(tasks):
     if not tasks:
         print("not Tasks to sort")
         return
-    k = lambda x : x["priority"]
-    sorted_tasks = sorted(tasks,k)
+    # k = lambda x : x["priority"]
+    sorted_tasks = sorted(tasks,key = lambda x : x["priority"])
     print("\n sorted tasks by priority:")
     i = 0
     while i < len(sorted_tasks):
-        task = sort_tasks[i]
+        task = sorted_tasks[i]
         if task["done"]:
             status = "Done"
         else:
@@ -112,6 +112,7 @@ def mark_done():
 def change_priority():
     """ Change task by priority""" 
     global tasks  
+    
     view_tasks(tasks)
     if (not tasks):
         print("No tasks to change priority")
@@ -131,7 +132,8 @@ def change_priority():
 
 def delete_task():
     global tasks
-    view_tasks()
+    
+    view_tasks(tasks)
     if (not tasks):
         print("No task to Delete")
         return
